@@ -86,5 +86,5 @@ bb: .space 4
 c: .space 4
 variable: .asciiz "\n Type a:"
 variable2: .asciiz "\n Type b:"
-variable3: .asciiz "\n Type c:
+variable3: .asciiz "\n Type c:"
 answer: .asciiz "\n Answer is: "
