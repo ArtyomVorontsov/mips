@@ -4,11 +4,10 @@ int main() {
     float term = 1;
     float x; 
     float sum = 1;
-    float n = 1;
     scanf("%f", &x);
     
-    for(float i = 1;i < 32;i++){
-       term = term*x/i;
+    for(float n = 1;n < 32;n++){
+       term = term*x/n;
        sum += term;
     }
     
