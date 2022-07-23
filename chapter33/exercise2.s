@@ -210,7 +210,7 @@ sw $t0, 4($s0)
 nop
 
 # ask for year
-la $a0, ask_for_month
+la $a0, ask_for_year
 li $v0, 4
 syscall
 
