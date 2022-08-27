@@ -1,1 +1,1 @@
-Exersise 3 has bug that words with length 3 or 7 processed incorrectly 
+Exersise 3 has bug that words with length 3 or 7 processed incorrectly (Fixed 27/08/2022)
