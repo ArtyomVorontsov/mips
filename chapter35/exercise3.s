@@ -431,20 +431,18 @@ copy_buffer_loop_end:
 lw $t0, ($fp)		# load buffer length
 nop
 
+addiu $t0, $t0, 1	# increment buffer length because character LF (enter) always exists
+
 li $v0, 9		# allocate new buffer
 move $a0, $t0
 syscall			# new_buffer_address is in $v0
 
 sw $v0, 8($fp)		# save new_buffer_address
 
-
 sw $zero, ($fp)		# clear buffer_length / counter
 nop
 
 copy_buffer_loop2:
-
-beqz $t2, copy_buffer_loop2_end
-nop 
 
 lw $t0, 4($fp)		# load buffer_address
 nop
@@ -462,7 +460,7 @@ nop
 
 add $t3, $t3, $t1	# new_buffer_address with offset 
 
-sb $t2, ($t3)
+sb $t2, ($t3)		# store byte from buffer to new buffer
 nop
 
 lw $t1, ($fp)		# load buffer_length
@@ -470,9 +468,11 @@ nop
 
 addiu $t1, $t1, 1	# increment buffer length
 
-sw $t1, ($fp)
+sw $t1, ($fp)		# store buffer length
 nop
 
+beqz $t2, copy_buffer_loop2_end
+nop 
 
 j copy_buffer_loop2
 nop
